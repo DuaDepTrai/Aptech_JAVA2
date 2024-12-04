@@ -79,8 +79,10 @@ public class SubstringSearchWithFile {
 
             if (positions.isEmpty()) {
                 writer.write("Ket qua: Chuoi '" + s2 + "' khong xuat hien trong s1.\n");
+                System.out.println("Ket qua: Chuoi '" + s2 + "' khong xuat hien trong s1.");
             } else {
-                writer.write("Ket qua: chuoi '" + s2 + "' xuat hien tai cac vi tri: " + positions + "\n");
+                writer.write("Ket qua: Chuoi '" + s2 + "' xuat hien tai cac vi tri: " + positions + "\n");
+                System.out.println("Ket qua: Chuoi '" + s2 + "' xuat hien tai cac vi tri: " + positions);
             }
 
             System.out.println("Ket qua da duoc ghi vao file: " + filePath);
@@ -91,12 +93,16 @@ public class SubstringSearchWithFile {
 
     public static List<Integer> findSubstringPositions(String s1, String s2) {
         List<Integer> positions = new ArrayList<>();
-        int index = s1.indexOf(s2);
+        
+        String lowerS1 = s1.toLowerCase();
+        String lowerS2 = s2.toLowerCase();
+        int index = lowerS1.indexOf(lowerS2);
 
         while (index != -1) {
             positions.add(index);
-            index = s1.indexOf(s2, index + 1);
+            index = lowerS1.indexOf(lowerS2, index + 1);
         }
         return positions;
+        
     }
 }

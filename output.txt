@@ -1,5 +1,5 @@
 Noi dung file (s1): 
-Java is a powerful programming language. Java is widely used for development.
+Java is a powerful programming language. Java is widely used.
 
 Chuoi can tim (s2): java
-Ket qua: Chuoi 'java' khong xuat hien trong s1.
+Ket qua: Chuoi 'java' xuat hien tai cac vi tri: [0, 41]

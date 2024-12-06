@@ -5,6 +5,7 @@
 package Homework.E2;
 
 import java.util.Scanner;
+import java.util.regex.*;
 
 /**
  *
@@ -59,14 +60,14 @@ public class Author {
         this.age = age;
     }
     
-    //nhapLieu()
-    public void nhapLieu() {
+    //Input data
+    public void inputData() {
         Scanner scanner = new Scanner(System.in);
         
         System.out.print("Enter Author Name: ");
         this.name = scanner.nextLine();
         
-        //Nhap lieu website
+        //Input website
         boolean validWebsite = false;
         while(!validWebsite) {
             System.out.print("Enter website: ");
@@ -78,7 +79,7 @@ public class Author {
             }
         }
         
-        //Nhap lieu email
+        //Input email
         boolean validEmail = false;
         while(!validEmail) {
             System.out.print("Enter email: ");
@@ -89,5 +90,55 @@ public class Author {
                 System.out.println("Invalid Email, try again");
             }
         }
+        
+        //Input age
+        boolean validAge = false;
+        while(!validAge) {
+            System.out.print("Enter age: ");
+            this.age = scanner.nextInt();
+            if (this.age > 20) {
+                validAge = true;
+            } else {
+                System.out.println("Age must be > 20, try again");
+            }
+        }
+    }
+    
+    //Display information
+    public void displayInformation() {
+        System.out.println(this.toString());
+    }
+    
+    @Override
+    public String toString() {
+        return "-----\nAuthor: " + this.name + "\n" +
+                "Website: " + this.website +"\n" +
+                "Email: " + this.email + "\n" +
+                "Age: " + this.age;
+    }
+    
+    //Check validate website
+    private boolean isValidWebsite(String website) {
+        String regex = "^(http://|https://)?(www\\.)?([a-zA-Z0-9]+)\\.(com|net|org|edu|gov)$";
+        Pattern pat = Pattern.compile(regex);
+        Matcher matcher = pat.matcher(website);
+        return matcher.matches();
+    }
+    
+    //Check validate email
+    private boolean isValidEmail(String email) {
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pat = Pattern.compile(regex);
+        Matcher matcher = pat.matcher(email);
+        return matcher.matches();
+    }
+    
+    public static void main(String[] args) {
+        //Create object & input data
+        Author author = new Author();
+        author.inputData();
+        
+        // Display information
+        author.displayInformation();
     }
 }

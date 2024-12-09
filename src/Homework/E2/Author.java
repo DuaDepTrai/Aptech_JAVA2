@@ -89,5 +89,19 @@ public class Author {
                 System.out.println("Invalid Email, try again");
             }
         }
+        
+        //Nhap lieu tuoi
+        boolean validAge = false;
+        while(!validAge) {
+            System.out.print("Enter age: ");
+            this.age = scanner.nextInt();
+            if (this.age > 20) {
+                validAge = true;
+            } else {
+                System.out.println("Invalid Age, try again");
+            }
+        }
+        
+        
     }
 }

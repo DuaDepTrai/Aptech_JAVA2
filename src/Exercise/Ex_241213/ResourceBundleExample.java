@@ -3,28 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Exercise.Ex_241213;
+import java.util.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ResourceBundleExample {
     public static void main(String[] args) {
-        // Đặt ngôn ngữ hiện tại (ví dụ: tiếng Anh)
-        Locale localeEn = new Locale("en");
-        ResourceBundle bundleEn = ResourceBundle.getBundle("Exercise.Ex_241213.messages", localeEn);
+        Scanner scanner = new Scanner(System.in);
         
-        // Đặt ngôn ngữ hiện tại (ví dụ: tiếng Việt)
-        Locale localeVi = new Locale("vi");
-        ResourceBundle bundleVi = ResourceBundle.getBundle("Exercise.Ex_241213.messages", localeVi);
+        System.out.print("Enter language code ('en' for English, 'vi' for Vietnamese): ");
+        String langCode = scanner.nextLine().trim();
         
-        // In ra các thông điệp theo từng ngôn ngữ
-        System.out.println("English:");
-        System.out.println(bundleEn.getString("greeting"));
-        System.out.println(bundleEn.getString("farewell"));
-        System.out.println(bundleEn.getString("inquiry"));
-
-        System.out.println("\nVietnamese:");
-        System.out.println(bundleVi.getString("greeting"));
-        System.out.println(bundleVi.getString("farewell"));
-        System.out.println(bundleVi.getString("inquiry"));
+        try {
+            Locale userLocale = new Locale(langCode);
+            
+            ResourceBundle bundle = ResourceBundle.getBundle("Exercise.Ex_241213.messages", userLocale);
+            
+            System.out.println("Messages in " + langCode + ": ");
+            System.out.println(bundle.getString("greeting"));
+            System.out.println(bundle.getString("farewell"));
+            System.out.println(bundle.getString("inquiry"));
+        } catch (Exception e) {
+            System.out.println("Language not supported or missing resource files.");
+        }
+        
+        scanner.close();
     }
 }

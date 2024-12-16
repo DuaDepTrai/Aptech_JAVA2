@@ -31,8 +31,8 @@ class Student {
 }
 
 public class StudentManagementList {
-    private static List<Student> studentList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final List<Student> studentList = new ArrayList<>();
+    private static final Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
         while (true) {
@@ -49,26 +49,16 @@ public class StudentManagementList {
             scanner.nextLine();
             
             switch (pick) {
-                case 1:
-                    addStudent();
-                    break;
-                case 2:
-                    updateStudent();
-                    break;
-                case 3:
-                    deleteStudent();
-                    break;
-                case 4:
-                    searchStudent();
-                    break;
-                case 5:
-                    displayStudents();
-                    break;
-                case 6:
+                case 1 -> addStudent();
+                case 2 -> updateStudent();
+                case 3 -> deleteStudent();
+                case 4 -> searchStudent();
+                case 5 -> displayStudents();
+                case 6 -> {
                     System.out.println("Thank you!");
                     return;
-                default:
-                    System.out.println("Invalid choice, please try again");
+                }
+                default -> System.out.println("Invalid choice, please try again");
             }
         }
     }

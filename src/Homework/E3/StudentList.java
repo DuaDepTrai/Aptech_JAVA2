@@ -30,7 +30,7 @@ class Student {
     }
 }
 
-public class StudentManagementList {
+public class StudentList {
     private static final List<Student> studentList = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
     

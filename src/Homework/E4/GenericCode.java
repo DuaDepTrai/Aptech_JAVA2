@@ -89,9 +89,26 @@ public class GenericCode {
         
         //Su dung cac generic method
         Integer[] arr1 = {1, 2, 3};
-        Integer[] arr2 = {1, 2, 3};
+        Integer[] arr2 = {1, 2, 4};
         System.out.println("Arrays equal: " + areArraysEqual(arr1, arr2));
         
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        System.out.println("Sum of even and odd: " + GenericCode.sumEvenAndOdd(numbers));
+        
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+        System.out.println("First index of 'Bob': " + GenericCode.findFirstIndex(names, "Bob"));
+        
+        System.out.println("Reversed List: " + GenericCode.reverseList(names));
+        
+        List<String> list1 = Arrays.asList("A", "B", "C");
+        List<String> list2 = Arrays.asList("1", "2", "3");
+        System.out.println("Merged list: " + GenericCode.mergeLists(list1, list2));
+        
+        System.out.println("Filtered list (Length > 3): " + GenericCode.filterByPredicate(names, s -> s.length() > 3));
+        
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "One");
+        map.put(2, "Two");
+        GenericCode.printMap(map);
     }
 }

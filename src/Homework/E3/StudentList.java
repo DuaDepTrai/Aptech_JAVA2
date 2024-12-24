@@ -11,13 +11,13 @@ import java.util.*;
  * @author Admin
  */
 
-class Student {
+class Student1 {
     String name;
     int age;
     double mark;
     int rollNo;
     
-    public Student(int rollNo, String name, int age, double mark) {
+    public Student1(int rollNo, String name, int age, double mark) {
         this.rollNo = rollNo;
         this.name = name;
         this.age = age;
@@ -31,7 +31,7 @@ class Student {
 }
 
 public class StudentList {
-    private static final List<Student> studentList = new ArrayList<>();
+    private static final List<Student1> studentList = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
@@ -69,7 +69,7 @@ public class StudentList {
         int rollNo = scanner.nextInt();
         scanner.nextLine();
         
-        for (Student student : studentList) {
+        for (Student1 student : studentList) {
             if (student.rollNo == rollNo) {
                 System.out.println("Student with roll number: " + rollNo + " already exist.");
                 return;
@@ -84,7 +84,7 @@ public class StudentList {
         System.out.print("Enter Mark: ");
         double mark = scanner.nextDouble();
         
-        Student student = new Student(rollNo, name, age, mark);
+        Student1 student = new Student1(rollNo, name, age, mark);
         studentList.add(student);
         System.out.println("Student added successfully.");
     }
@@ -95,8 +95,8 @@ public class StudentList {
         int rollNo = scanner.nextInt();
         scanner.nextLine();
         
-        Student studentUpdate = null;
-        for (Student student : studentList) {
+        Student1 studentUpdate = null;
+        for (Student1 student : studentList) {
             if (student.rollNo == rollNo) {
                 studentUpdate = student;
                 break;
@@ -128,8 +128,8 @@ public class StudentList {
         int rollNo = scanner.nextInt();
         scanner.nextLine();
         
-        Student studentDelete = null;
-        for (Student student : studentList) {
+        Student1 studentDelete = null;
+        for (Student1 student : studentList) {
             if (student.rollNo == rollNo) {
                 studentDelete = student;
                 break;
@@ -151,8 +151,8 @@ public class StudentList {
         int rollNo = scanner.nextInt();
         scanner.nextLine();
         
-        Student studentSearch = null;
-        for (Student student : studentList) {
+        Student1 studentSearch = null;
+        for (Student1 student : studentList) {
             if (student.rollNo == rollNo) {
                 studentSearch = student;
                 break;
@@ -176,7 +176,7 @@ public class StudentList {
         }
         
         System.out.println("List Of All Students:");
-        for (Student student : studentList) {
+        for (Student1 student : studentList) {
             System.out.println(student);
         }
     }

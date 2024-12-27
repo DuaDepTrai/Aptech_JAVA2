@@ -14,8 +14,8 @@ import java.util.*;
 public class Atm {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-                
-        System.out.println("MENU: ");
+        
+        System.out.println("MENU:");
         System.out.println("1. English");
         System.out.println("2. Vietnamese");
         System.out.print("Choose language: ");
@@ -38,10 +38,9 @@ public class Atm {
         
         System.out.println(bundle.getString("name") + ": " + name);
         System.out.println(bundle.getString("address") + ": " + add);
-        NumberFormat formatBlc = NumberFormat.getCurrencyInstance(locale);
-        String formattedBlc = formatBlc.format(blc);
-        System.out.println(bundle.getObject("balance") + ": " + formattedBlc);
         
-        s.close();
+        NumberFormat blcFormat = NumberFormat.getCurrencyInstance(locale);
+        String formattedBlc = blcFormat.format(blc);
+        System.out.println(bundle.getString("balance") + ": " + formattedBlc);
     }
 }

@@ -4,7 +4,7 @@
  */
 package Exam.Question3;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @author DUADEPTRAI
  */
 public class ProductManagement {
-    public List<Product> initiateProductList() {
+    public List<Product> initiateProductList(){
         Product prd1 = new Product("Apple MacBook Air 13 inch", 1500, "Laptop", 5);
         Product prd2 = new Product("IPhone 14 Pro Max 128GB", 1500, "Phone", 10);
         Product prd3 = new Product("Samsung Galaxy Z Fold5 5G 256GB", 2000, "Phone", 5);
@@ -23,11 +23,11 @@ public class ProductManagement {
         return List.of(prd1, prd2, prd3, prd4, prd5, prd6);
     }
     
-    public List<Product> getProductWithMinSalePrice(List<Product> products) {
+    public List<Product> getProductWithMinSalePrice(List<Product> products){
         double minSalePrice = products.stream()
-                                .mapToDouble(Product::getSalePrice)
-                                .min()
-                                .orElse(Double.MAX_VALUE);
+                                        .mapToDouble(Product::getSalePrice)
+                                        .min()
+                                        .orElse(Double.MAX_VALUE);
         return products.stream()
                         .filter(p -> p.getSalePrice() == minSalePrice)
                         .collect(Collectors.toList());

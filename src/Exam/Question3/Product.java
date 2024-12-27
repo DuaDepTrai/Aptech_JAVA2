@@ -14,18 +14,18 @@ public class Product {
     private String category;
     private double percentDiscount;
     
-    public Product(String name, double originalPrice, String category, double percentDiscount) {
+    public Product(String name, double originalPrice, String category, double percentDiscount){
         this.name = name;
         this.originalPrice = originalPrice;
         this.category = category;
-        this.percentDiscount = percentDiscount;                
+        this.percentDiscount = percentDiscount;
     }
     
     public String getName(){return name;}
     public double getOriginalPrice(){return originalPrice;}
     public String getCategory(){return category;}
     public double getPercentDiscount(){return percentDiscount;}
-    public double getSalePrice(){return originalPrice*(1-getPercentDiscount()/100);}
+    public double getSalePrice(){return originalPrice*(1-percentDiscount/100);}
     
     public void setName(String name){this.name = name;}
     public void setOriginalPrice(double originalPrice){this.originalPrice = originalPrice;}
@@ -33,5 +33,5 @@ public class Product {
     public void setPercentDiscount(double percentDiscount){this.percentDiscount = percentDiscount;}
     
     @Override
-    public String toString() {return "Name = " + name;}
+    public String toString(){return "Name = " + name;}
 }

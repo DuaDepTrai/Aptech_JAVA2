@@ -13,14 +13,13 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         ProductManagement pm = new ProductManagement();
-        
         List<Product> products = pm.initiateProductList();
         
-        long countProducts = pm.countProducts(products);
-        System.out.println("Number of products > $1000: " + countProducts);
+        long numberProducts = pm.countProducts(products);
+        System.out.println("Products count: " + numberProducts);
         
-        List<Product> getMinPriceProducts = pm.getProductWithMinSalePrice(products);
-        System.out.println("List of products with min sale price: ");
-        getMinPriceProducts.forEach(System.out::println);
+        List<Product> minPriceProduct = pm.getProductWithMinSalePrice(products);
+        System.out.println("Product with min sale price:");
+        minPriceProduct.forEach(System.out::println);
     }
 }
